@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="884a95c1-fb30-4976-85ea-c93ea00d8477" name="Default" comment="" />
-    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-model/target/" />
-    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-service/target/" />
-    <ignored path="$PROJECT_DIR$/plgxs-admin/target/" />
-    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-utils/target/" />
-    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-web/target/" />
-    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-dao/target/" />
+    <list default="true" id="4881abf6-e46e-4818-9a64-5e52af3ed134" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/plgxs-common/target/" />
     <ignored path="$PROJECT_DIR$/plgxs-parent/target/" />
     <ignored path="$PROJECT_DIR$/plgxs-app/target/" />
-    <ignored path="$PROJECT_DIR$/plgxs-common/target/" />
+    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-utils/target/" />
+    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-service/target/" />
+    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-dao/target/" />
+    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-model/target/" />
+    <ignored path="$PROJECT_DIR$/plgxs-admin/target/" />
+    <ignored path="$PROJECT_DIR$/plgxs-admin/plgxs-admin-web/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,19 +30,13 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="D:/maven/apache-maven-3.6.0" />
-        <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.0\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="lookForNested" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -63,18 +57,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -179,20 +172,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="884a95c1-fb30-4976-85ea-c93ea00d8477" name="Default" comment="" />
-      <created>1544949351761</created>
+      <changelist id="4881abf6-e46e-4818-9a64-5e52af3ed134" name="Default" comment="" />
+      <created>1544960254075</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1544949351761</updated>
-      <workItem from="1544949357348" duration="1062000" />
+      <updated>1544960254075</updated>
+      <workItem from="1544960265138" duration="81000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1062000" />
+    <option name="totallyTimeSpent" value="81000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="10" y="20" width="1346" height="688" extended-state="1" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -208,7 +201,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
