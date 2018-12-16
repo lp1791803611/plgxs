@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>top.plgxs</groupId>
+    <artifactId>plgxs-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>6</maven.compiler.source>
+        <maven.compiler.target>6</maven.compiler.target>
+        <skipTest>true</skipTest>
+
+        <!--maven-->
+        <version-maven-source-plugin>2.2.1</version-maven-source-plugin>
+        <version-maven-javadoc-plugin>2.9</version-maven-javadoc-plugin>
+        <version-maven-compiler-plugin>3.1</version-maven-compiler-plugin>
+        <version-maven-surefire-plugin>2.14.1</version-maven-surefire-plugin>
+
+        <!--db-->
+        <version-mysql-connector>5.1.40</version-mysql-connector>
+        <version-druid>1.0.29</version-druid>
+        <!--mybatis-->
+        <version-mybatis>3.4.1</version-mybatis>
+        <version-mybatis-spring>1.3.1</version-mybatis-spring>
+        <version-pagehelper>5.1.2</version-pagehelper>
+
+        <version-cglib>2.2.2</version-cglib>
+        <!--spring-->
+        <version-spring>4.3.10.RELEASE</version-spring>
+        <version-aspectjweaver>1.8.10</version-aspectjweaver>
+        <version-aopalliance>1.0</version-aopalliance>
+        <version-quartz>2.3.0</version-quartz>
+        <!--jackson-->
+        <version-jackson-mapper-asl>1.9.13</version-jackson-mapper-asl>
+        <version-jackson-databind>2.3.1</version-jackson-databind>
+        <version-jackson-module-jaxb-annotations>2.1.0</version-jackson-module-jaxb-annotations>
+
+        <!--servlet/jsp-->
+        <version-servlet-api>3.1.0</version-servlet-api>
+        <version-jsp-api>2.0</version-jsp-api>
+        <version-jstl>1.2</version-jstl>
+        <version-freemarker>2.3.23</version-freemarker>
+
+        <!--log-->
+        <version-log4j>1.2.17</version-log4j>
+        <version-slf4j>1.7.21</version-slf4j>
+
+        <!--common-->
+        <version-commons-lang3>3.5</version-commons-lang3>
+        <version-commons-fileupload>1.3.1</version-commons-fileupload>
+        <version-commons-io>2.4</version-commons-io>
+        <version-beanutils>1.9.2</version-beanutils>
+
+        <!--poi-->
+        <version-poi>3.15</version-poi>
+        <version-poi-ooxml>3.15</version-poi-ooxml>
+        <!--junit-->
+        <version-junit>4.12</version-junit>
+
+        <version.dom4j>1.6.1</version.dom4j>
+
+        <!--json-->
+        <version-fastjson>1.2.47</version-fastjson>
+        <version-gson>2.8.0</version-gson>
+
+        <!--shiro-->
+        <shiro-version>1.2.4</shiro-version>
+
+        <!--mail-->
+        <javax-mail-api>1.5.1</javax-mail-api>
+        <javax-mail>1.5.2</javax-mail>
+
+        <version-pull-parser>2.1.10</version-pull-parser>
+
+        <!--zxing-->
+        <com-google-zxing>3.2.1</com-google-zxing>
+
+        <version-httpclient>4.5.2</version-httpclient>
+
+        <version-joda-time>2.9.7</version-joda-time>
+
+        <solr-version>5.3.1</solr-version>
+        <version-jedis>2.9.0</version-jedis>
+        <version-dubbo>2.5.3</version-dubbo>
+        <version-zookeeper>3.4.6</version-zookeeper>
+        <version-zkclient>0.1</version-zkclient>
+        <version-activemq>5.12.3</version-activemq>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- database -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${version-mybatis}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${version-mysql-connector}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${version-mybatis-spring}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-tx</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--分页-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${version-pagehelper}</version>
+            </dependency>
+            <!--连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${version-druid}</version>
+            </dependency>
+
+            <!--动态代理-->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${version-cglib}</version>
+            </dependency>
+
+            <!-- spring -->
+            <!--spring core-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+
+            <!--spring dao-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <!--spring web-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-oxm</artifactId>
+                <version>${version-spring}</version>
+            </dependency>
+            <!--spring test-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <scope>test</scope>
+                <version>${version-spring}</version>
+            </dependency>
+
+            <!--jackson-->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${version-jackson-mapper-asl}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${version-jackson-databind}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jaxb-annotations</artifactId>
+                <version>${version-jackson-module-jaxb-annotations}</version>
+            </dependency>
+
+            <!--fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${version-fastjson}</version>
+            </dependency>
+
+            <!-- gson -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${version-gson}</version>
+            </dependency>
+
+            <!-- dom4j -->
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${version.dom4j}</version>
+            </dependency>
+
+            <!--poi-->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${version-poi}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${version-poi-ooxml}</version>
+            </dependency>
+
+            <!-- web -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${version-freemarker}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${version-servlet-api}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${version-jsp-api}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${version-jstl}</version>
+            </dependency>
+
+            <!-- log -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${version-log4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${version-slf4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${version-slf4j}</version>
+            </dependency>
+
+            <!-- commons -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${version-commons-lang3}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${version-commons-fileupload}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${version-commons-io}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${version-beanutils}</version>
+            </dependency>
+
+            <!--Junit-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version-junit}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- dom4j -->
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+
+            <!--httpclient-->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${version-httpclient}</version>
+            </dependency>
+
+            <!-- shiro -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+
+            <!-- email -->
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>javax.mail-api</artifactId>
+                <version>${javax-mail-api}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>${javax-mail}</version>
+            </dependency>
+
+            <!-- 二维码生成器 -->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${com-google-zxing}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pull-parser</groupId>
+                <artifactId>pull-parser</artifactId>
+                <version>${version-pull-parser}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${version-aspectjweaver}</version>
+            </dependency>
+            <dependency>
+                <groupId>aopalliance</groupId>
+                <artifactId>aopalliance</artifactId>
+                <version>${version-aopalliance}</version>
+            </dependency>
+
+            <!-- quartz任务调度框架 -->
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${version-quartz}</version>
+            </dependency>
+
+            <!-- 时间操作组件 -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${version-joda-time}</version>
+            </dependency>
+
+            <!-- solr客户端 -->
+            <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-solrj</artifactId>
+                <version>${solr-version}</version>
+            </dependency>
+
+            <!-- Redis客户端 -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${version-jedis}</version>
+            </dependency>
+
+            <!-- dubbo相关 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${version-dubbo}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${version-zookeeper}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${version-zkclient}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-all</artifactId>
+                <version>${version-activemq}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version-maven-source-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>bundle-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${version-maven-javadoc-plugin}</version>
+                <configuration>
+                    <quiet>true</quiet>
+                    <failOnError>false</failOnError>
+                    <stylesheet>maven</stylesheet>
+                    <tags>
+                        <tag>
+                            <name>Author</name>
+                            <placement>a</placement>
+                            <head>Author</head>
+                        </tag>
+                        <tag>
+                            <name>Date</name>
+                            <placement>a</placement>
+                            <head>Date</head>
+                        </tag>
+                        <tag>
+                            <name>Version</name>
+                            <placement>a</placement>
+                            <head>Version</head>
+                        </tag>
+                        <tag>
+                            <name>Email</name>
+                            <placement>a</placement>
+                            <head>Email</head>
+                        </tag>
+                    </tags>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version-maven-compiler-plugin}</version>
+                <configuration>
+                    <skip>${skipTest}</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${version-maven-surefire-plugin}</version>
+                <configuration>
+                    <skip>${skipTest}</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
