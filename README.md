@@ -3,7 +3,7 @@
 
 使用IntelliJ IDEA工具进行构建，多模块Maven+Spring+SpringMVC+Mybatis 
 
-项目结构
+项目结构<br>
   plgxs<br>
   >plgxs-parent<br>
   >plgxs-common<br>
