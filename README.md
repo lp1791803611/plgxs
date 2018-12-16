@@ -4,12 +4,12 @@
 使用IntelliJ IDEA工具进行构建，多模块Maven+Spring+SpringMVC+Mybatis 
 
 项目结构
-  >plgxs
-  >>plgxs-parent
-  >>plgxs-common
-  >>plgxs-admin
-  >>>plgxs-admin-utils
-  >>>plgxs-admin-model
-  >>>plgxs-admin-dao
-  >>>plgxs-admin-service
-  >>>plgxs-admin-web
+  plgxs<br>
+  >plgxs-parent<br>
+  >plgxs-common<br>
+  >plgxs-admin<br>
+  >>plgxs-admin-utils<br>
+  >>plgxs-admin-model<br>
+  >>plgxs-admin-dao<br>
+  >>plgxs-admin-service<br>
+  >>plgxs-admin-web<br>
