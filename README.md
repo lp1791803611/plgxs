@@ -5,11 +5,12 @@
 
 项目结构<br>
   plgxs<br>
-  >plgxs-parent<br>
-  >plgxs-common<br>
-  >plgxs-admin<br>
-  >>plgxs-admin-utils<br>
-  >>plgxs-admin-model<br>
-  >>plgxs-admin-dao<br>
-  >>plgxs-admin-service<br>
-  >>plgxs-admin-web<br>
+  -- plgxs-parent<br>
+  -- plgxs-common<br>
+  -- plgxs-api<br>
+  -- plgxs-admin<br>
+  ---- plgxs-admin-utils<br>
+  ---- plgxs-admin-model<br>
+  ---- plgxs-admin-dao<br>
+  ---- plgxs-admin-service<br>
+  ---- plgxs-admin-web<br>
