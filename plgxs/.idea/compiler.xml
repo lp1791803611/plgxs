@@ -16,15 +16,15 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="plgxs-admin" target="1.7" />
-      <module name="plgxs-admin-dao" target="1.7" />
-      <module name="plgxs-admin-model" target="1.7" />
-      <module name="plgxs-admin-service" target="1.7" />
-      <module name="plgxs-admin-utils" target="1.7" />
-      <module name="plgxs-admin-web" target="1.7" />
-      <module name="plgxs-app" target="1.7" />
-      <module name="plgxs-common" target="1.7" />
-      <module name="plgxs-parent" target="1.7" />
+      <module name="plgxs-admin" target="1.8" />
+      <module name="plgxs-admin-dao" target="1.8" />
+      <module name="plgxs-admin-model" target="1.8" />
+      <module name="plgxs-admin-service" target="1.8" />
+      <module name="plgxs-admin-utils" target="1.8" />
+      <module name="plgxs-admin-web" target="1.8" />
+      <module name="plgxs-app" target="1.8" />
+      <module name="plgxs-common" target="1.8" />
+      <module name="plgxs-parent" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

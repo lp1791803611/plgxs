@@ -11,8 +11,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>6</maven.compiler.source>
-        <maven.compiler.target>6</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <skipTest>true</skipTest>
 
         <!--maven-->
@@ -37,7 +37,7 @@
         <version-quartz>2.3.0</version-quartz>
         <!--jackson-->
         <version-jackson-mapper-asl>1.9.13</version-jackson-mapper-asl>
-        <version-jackson-databind>2.3.1</version-jackson-databind>
+        <version-jackson-databind>2.7.3</version-jackson-databind>
         <version-jackson-module-jaxb-annotations>2.1.0</version-jackson-module-jaxb-annotations>
 
         <!--servlet/jsp-->
@@ -456,14 +456,27 @@
         </dependencies>
     </dependencyManagement>
 
+    <profiles>
+        <profile>
+            <id>disable-javadoc-doclint</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -476,46 +489,6 @@
                         <phase>package</phase>
                         <goals>
                             <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${version-maven-javadoc-plugin}</version>
-                <configuration>
-                    <quiet>true</quiet>
-                    <failOnError>false</failOnError>
-                    <stylesheet>maven</stylesheet>
-                    <tags>
-                        <tag>
-                            <name>Author</name>
-                            <placement>a</placement>
-                            <head>Author</head>
-                        </tag>
-                        <tag>
-                            <name>Date</name>
-                            <placement>a</placement>
-                            <head>Date</head>
-                        </tag>
-                        <tag>
-                            <name>Version</name>
-                            <placement>a</placement>
-                            <head>Version</head>
-                        </tag>
-                        <tag>
-                            <name>Email</name>
-                            <placement>a</placement>
-                            <head>Email</head>
-                        </tag>
-                    </tags>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>

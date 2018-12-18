@@ -20,10 +20,20 @@
             <property name="username" value="${jdbc.username}" />
             <property name="password" value="${jdbc.password}" />
 
-            <!-- 连接池最大空闲 -->
-            <property name="maxActive" value="10" />
-            <!-- 连接池最小空闲 -->
-            <property name="minIdle" value="5" />
+            <!-- 连接池启动时的初始值 -->
+            <property name="initialSize" value="3"/>
+            <!-- 连接池的最大值 -->
+            <property name="maxActive" value="800"/>
+            <!-- 最大空闲值 -->
+            <property name="maxIdle" value="100"/>
+            <!-- 最小空闲值 -->
+            <property name="minIdle" value="3"/>
+            <!-- 是否启用超时自动移除空闲链接 -->
+            <property name="removeAbandoned" value="false"/>
+            <!-- 超时时间 -->
+            <property name="removeAbandonedTimeout" value="18000"/>
+            <!-- 超时等待时间 -->
+            <property name="maxWait" value="10000"></property>
         </bean>
 
         <!--SqlSessionFactory配置 和mybatis整合-->
@@ -32,12 +42,12 @@
             <property name="dataSource" ref="dataSource" />
             <!--指定mybatis配置文件-->
             <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
-
+            <property name="mapperLocations" value="classpath:top/plgxs/admin/mapper/*.xml" />
         </bean>
 
         <!--配置mybatis扫描器-->
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-            <property name="basePackage" value="top.plgxs.admin.mapper" />
+            <property name="basePackage" value="top.plgxs.admin.dao" />
             <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         </bean>
 

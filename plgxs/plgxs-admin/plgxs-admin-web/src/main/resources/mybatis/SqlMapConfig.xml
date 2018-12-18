@@ -11,7 +11,7 @@
 
     <!--ognl实例类的别名-->
     <typeAliases>
-        <package name="top.plgxs.admin.model.pojo" />
+        <package name="top.plgxs.admin.entity" />
     </typeAliases>
 
     <!--注册分页插件-->
