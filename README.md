@@ -16,7 +16,7 @@
   ---- plgxs-admin-web　　　controller层<br>
   
 ### 2018年12月18日 14:03:30
-  1、配置Spring SpringMVC Mybatis
+  1、配置Spring SpringMVC Mybatis  
   -config  
   ---db.properties 数据库配置  
   -mybatis  
