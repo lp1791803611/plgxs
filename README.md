@@ -15,5 +15,17 @@
   ---- plgxs-admin-service　service层，业务接口及实现，事务控制<br>
   ---- plgxs-admin-web　　　controller层<br>
   
-
-  
+### 2018年12月18日 14:03:30
+  1、配置Spring SpringMVC Mybatis
+  -config  
+  ---db.properties 数据库配置  
+  -mybatis  
+  ---SqlMapConfig.xml mybatis配置+分页  
+  -spring
+  ---applicationContext-dao.xml  
+  ---applicationContext-service.xml  
+  ---applicationContext-trans.xml  
+  ---springmvc.xml  
+  -generatorConfig.xml  
+  web.xml  
+  2、添加js文件，包括jquery、easyui、layui、bootstrap  
