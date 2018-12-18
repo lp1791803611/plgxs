@@ -13,7 +13,8 @@
   ---- plgxs-admin-web　　　controller层  
     
 ### Spring SpringMVC Mybatis的配置文件  
-  plgxs-admin-web下src/main/resources  
+  plgxs-admin-web下  
+  1、src/main/resources  
   -config  
   ---db.properties 数据库配置  
   -mybatis  
@@ -24,5 +25,7 @@
   ---applicationContext-trans.xml  
   ---springmvc.xml  
   -generatorConfig.xml  
+    
+  2、src/main/webapp/WEB-INF  
   web.xml  
    
