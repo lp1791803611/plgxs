@@ -25,7 +25,6 @@
   ---applicationContext-trans.xml  
   ---springmvc.xml  
   -generatorConfig.xml  
-    
   2、src/main/webapp/WEB-INF  
   web.xml  
    
