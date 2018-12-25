@@ -42,11 +42,13 @@
             <property name="dataSource" ref="dataSource" />
             <!--指定mybatis配置文件-->
             <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
-            <property name="mapperLocations" value="classpath:top/plgxs/admin/mapper/*.xml" />
+            <!--指定mybatis的xml文件位置-->
+            <property name="mapperLocations" value="classpath:mapper/*.xml" />
         </bean>
 
         <!--配置mybatis扫描器-->
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+            <!--dao层接口位置-->
             <property name="basePackage" value="top.plgxs.admin.dao" />
             <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         </bean>

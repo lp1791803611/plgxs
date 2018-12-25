@@ -21,18 +21,18 @@
         </javaTypeResolver>
 
         <!-- 实体类生成的位置 -->
-        <javaModelGenerator targetPackage="top.plgxs.admin.entity" targetProject="src/test/java">
+        <javaModelGenerator targetPackage="top.plgxs.admin.entity" targetProject="plgxs-admin-model/src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- *Mapper.xml 文件的位置 -->
-        <sqlMapGenerator targetPackage="top.plgxs.admin.mapper" targetProject="src/test/java">
+        <sqlMapGenerator targetPackage="mapper" targetProject="plgxs-admin-dao/src/main/resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- Mapper 接口文件的位置 -->
-        <javaClientGenerator targetPackage="top.plgxs.admin.dao" targetProject="src/test/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="top.plgxs.admin.dao" targetProject="plgxs-admin-dao/src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
