@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.plgxs.admin.dao.PlgUserMapper">
+  <resultMap id="BaseResultMap" type="top.plgxs.admin.entity.PlgUser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="head_url" jdbcType="VARCHAR" property="headUrl" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="login_number" jdbcType="BIGINT" property="loginNumber" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="mobile_verification_code" jdbcType="VARCHAR" property="mobileVerificationCode" />
+    <result column="email_verification_code" jdbcType="VARCHAR" property="emailVerificationCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, password, mobile, email, nickname, gender, realname, id_number, head_url, 
+    register_time, login_number, last_login_time, update_time, status, mobile_verification_code, 
+    email_verification_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from plg_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from plg_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top.plgxs.admin.entity.PlgUser">
+    insert into plg_user (id, username, password, 
+      mobile, email, nickname, 
+      gender, realname, id_number, 
+      head_url, register_time, login_number, 
+      last_login_time, update_time, status, 
+      mobile_verification_code, email_verification_code
+      )
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{realname,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{headUrl,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP}, #{loginNumber,jdbcType=BIGINT}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{mobileVerificationCode,jdbcType=VARCHAR}, #{emailVerificationCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top.plgxs.admin.entity.PlgUser">
+    insert into plg_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="headUrl != null">
+        head_url,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="loginNumber != null">
+        login_number,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="mobileVerificationCode != null">
+        mobile_verification_code,
+      </if>
+      <if test="emailVerificationCode != null">
+        email_verification_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="headUrl != null">
+        #{headUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginNumber != null">
+        #{loginNumber,jdbcType=BIGINT},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="mobileVerificationCode != null">
+        #{mobileVerificationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="emailVerificationCode != null">
+        #{emailVerificationCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.plgxs.admin.entity.PlgUser">
+    update plg_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="headUrl != null">
+        head_url = #{headUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginNumber != null">
+        login_number = #{loginNumber,jdbcType=BIGINT},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="mobileVerificationCode != null">
+        mobile_verification_code = #{mobileVerificationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="emailVerificationCode != null">
+        email_verification_code = #{emailVerificationCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.plgxs.admin.entity.PlgUser">
+    update plg_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      realname = #{realname,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      head_url = #{headUrl,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      login_number = #{loginNumber,jdbcType=BIGINT},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      mobile_verification_code = #{mobileVerificationCode,jdbcType=VARCHAR},
+      email_verification_code = #{emailVerificationCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

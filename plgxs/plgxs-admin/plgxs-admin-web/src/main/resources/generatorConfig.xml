@@ -4,16 +4,17 @@
 <generatorConfiguration>
 
     <!-- 本地数据库驱动程序jar包的全路径 -->
-    <classPathEntry location="E:/maven/repository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"/>
+    <!--<classPathEntry location="D:/maven/repository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"/>-->
 
     <context id="context" targetRuntime="MyBatis3">
-        <commentGenerator>
+        <!-- 使用自定义的插件 -->
+        <commentGenerator type="MyCommentGenerator">
             <property name="suppressAllComments" value="true"/>
             <property name="suppressDate" value="true"/>
         </commentGenerator>
 
         <!-- 数据库的相关配置 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/plgxs"
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://39.105.147.149:3306/plgxs"
                         userId="root" password="root"/>
 
         <javaTypeResolver>
@@ -21,23 +22,30 @@
         </javaTypeResolver>
 
         <!-- 实体类生成的位置 -->
-        <javaModelGenerator targetPackage="top.plgxs.admin.entity" targetProject="plgxs-admin-model/src/main/java">
+        <javaModelGenerator targetPackage="top.plgxs.admin.entity" targetProject="E:/GitRepository/plgxs/plgxs-admin/plgxs-admin-model/src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- *Mapper.xml 文件的位置 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="plgxs-admin-dao/src/main/resources">
+        <sqlMapGenerator targetPackage="top.plgxs.admin.mapper" targetProject="E:/GitRepository/plgxs/plgxs-admin/plgxs-admin-dao/src/main/java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- Mapper 接口文件的位置 -->
-        <javaClientGenerator targetPackage="top.plgxs.admin.dao" targetProject="plgxs-admin-dao/src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="top.plgxs.admin.dao" targetProject="E:/GitRepository/plgxs/plgxs-admin/plgxs-admin-dao/src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
         <!-- 相关表的配置 -->
-        <table tableName="member" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="plg_role" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false"/>
+        <table tableName="plg_user" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="plg_user_open" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="plg_user_role" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+
     </context>
 </generatorConfiguration>
