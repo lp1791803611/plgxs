@@ -1,54 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
-<!DOCTYPE html>
-<html>
-  <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	
-	<title>蓬莱阁后台管理端</title>
-	
-	<link rel="icon" href="../images/favicon.ico">
+
+	<link rel="icon" href="${contextPath}/images/favicon.ico">
 	<!-- Bootstrap 4.0-->
-	<link rel="stylesheet" href="../assets/vendor_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="${contextPath}/assets/vendor_components/bootstrap/dist/css/bootstrap.css">
 	
 	<!-- Bootstrap extend-->
-	<link rel="stylesheet" href="../assets/css/bootstrap-extend.css">
+	<link rel="stylesheet" href="${contextPath}/assets/css/bootstrap-extend.css">
 	
 	<!-- theme style -->
-	<link rel="stylesheet" href="../assets/css/master_style.css">
+	<link rel="stylesheet" href="${contextPath}/assets/css/master_style.css">
 	
 	<!-- Superieur Admin skins -->
-	<link rel="stylesheet" href="../assets/css/skins/_all-skins.css">
+	<link rel="stylesheet" href="${contextPath}/assets/css/skins/_all-skins.css">
 	
 	<!-- daterange picker -->	
-	<link rel="stylesheet" href="../assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="${contextPath}/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css">
 	
 	<!-- Morris charts -->
-	<link rel="stylesheet" href="../assets/vendor_components/morris.js/morris.css">
+	<link rel="stylesheet" href="${contextPath}/assets/vendor_components/morris.js/morris.css">
 	
 	<!-- Data Table-->
-	<link rel="stylesheet" type="text/css" href="../assets/vendor_components/datatable/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="${contextPath}/assets/vendor_components/datatable/datatables.min.css"/>
 
-  </head>
-<body class="hold-transition skin-blue sidebar-mini">
+    <!-- jQuery 3 -->
+    <script src="${contextPath}/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="${contextPath}/assets/vendor_components/jquery-ui/jquery-ui.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- popper -->
+    <script src="${contextPath}/assets/vendor_components/popper/dist/popper.min.js"></script>
+
+    <!-- date-range-picker -->
+    <script src="${contextPath}/assets/vendor_components/moment/min/moment.min.js"></script>
+    <script src="${contextPath}/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Bootstrap 4.0-->
+    <script src="${contextPath}/assets/vendor_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- ChartJS -->
+    <script src="${contextPath}/assets/vendor_components/chart.js-master/Chart.min.js"></script>
+
+    <!-- Slimscroll -->
+    <script src="${contextPath}/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- FastClick -->
+    <script src="${contextPath}/assets/vendor_components/fastclick/lib/fastclick.js"></script>
+
+    <!-- Morris.js charts -->
+    <script src="${contextPath}/assets/vendor_components/raphael/raphael.min.js"></script>
+    <script src="${contextPath}/assets/vendor_components/morris.js/morris.min.js"></script>
+
+    <!-- This is data table -->
+    <script src="${contextPath}/assets/vendor_components/datatable/datatables.min.js"></script>
+
+    <!-- Superieur Admin App -->
+    <script src="${contextPath}/assets/js/template.js"></script>
+
+    <!-- Superieur Admin dashboard demo (This is only for demo purposes) -->
+    <script src="${contextPath}/assets/js/pages/dashboard.js"></script>
+
+    <!-- Superieur Admin for demo purposes -->
+    <script src="${contextPath}/assets/js/demo.js"></script>
+
   <header class="main-header">
     <!-- Logo -->
     <a href="index.html" class="logo">
       <!-- mini logo -->
 	  <div class="logo-mini">
-		  <span class="light-logo"><img src="../images/logo-light.png" alt="logo"></span>
-		  <span class="dark-logo"><img src="../images/logo-dark.png" alt="logo"></span>
+		  <span class="light-logo"><img src="${contextPath}/images/logo-light.png" alt="logo"></span>
+		  <span class="dark-logo"><img src="${contextPath}/images/logo-dark.png" alt="logo"></span>
 	  </div>
       <!-- logo-->
       <div class="logo-lg">
-		  <span class="light-logo"><img src="../images/logo-light-text.png" alt="logo"></span>
-	  	  <span class="dark-logo"><img src="../images/logo-dark-text.png" alt="logo"></span>
+		  <span class="light-logo"><img src="${contextPath}/images/logo-light-text.png" alt="logo"></span>
+	  	  <span class="dark-logo"><img src="${contextPath}/images/logo-dark-text.png" alt="logo"></span>
 	  </div>
     </a>
     <!-- Header Navbar -->
@@ -71,13 +101,13 @@
 		  <!-- User Account-->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../images/avatar/7.jpg" class="user-image rounded-circle" alt="User Image">
+              <img src="${contextPath}/images/avatar/7.jpg" class="user-image rounded-circle" alt="User Image">
             </a>
             <ul class="dropdown-menu animated flipInY">
               <!-- User image -->
-              <li class="user-header bg-img" style="background-image: url(../images/user-info.jpg)" data-overlay="3">
+              <li class="user-header bg-img" style="background-image: url(${contextPath}/images/user-info.jpg)" data-overlay="3">
 				  <div class="flexbox align-self-center">					  
-				  	<img src="../images/avatar/7.jpg" class="float-left rounded-circle" alt="User Image">					  
+				  	<img src="${contextPath}/images/avatar/7.jpg" class="float-left rounded-circle" alt="User Image">
 					<h4 class="user-name align-self-center">
 					  <span>Samuel Brus</span>
 					  <small>samuel@gmail.com</small>
@@ -107,7 +137,7 @@
             <ul class="dropdown-menu animated fadeInDown">
 			  
               <li class="header">
-				<div class="bg-img text-white p-20" style="background-image: url(../images/user-info.jpg)" data-overlay="5">
+				<div class="bg-img text-white p-20" style="background-image: url(${contextPath}/images/user-info.jpg)" data-overlay="5">
 					<div class="flexbox">
 						<div>
 							<h3 class="mb-0 mt-0">5 New</h3>
@@ -125,7 +155,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../images/user2-160x160.jpg" class="rounded-circle" alt="User Image">
+                        <img src="${contextPath}/images/user2-160x160.jpg" class="rounded-circle" alt="User Image">
                       </div>
                       <div class="mail-contnet">
                          <h4>
@@ -140,7 +170,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../images/user3-128x128.jpg" class="rounded-circle" alt="User Image">
+                        <img src="${contextPath}/images/user3-128x128.jpg" class="rounded-circle" alt="User Image">
                       </div>
                       <div class="mail-contnet">
                          <h4>
@@ -154,7 +184,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../images/user4-128x128.jpg" class="rounded-circle" alt="User Image">
+                        <img src="${contextPath}/images/user4-128x128.jpg" class="rounded-circle" alt="User Image">
                       </div>
                       <div class="mail-contnet">
                          <h4>
@@ -168,7 +198,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../images/user3-128x128.jpg" class="rounded-circle" alt="User Image">
+                        <img src="${contextPath}/images/user3-128x128.jpg" class="rounded-circle" alt="User Image">
                       </div>
                       <div class="mail-contnet">
                          <h4>
@@ -182,7 +212,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../images/user4-128x128.jpg" class="rounded-circle" alt="User Image">
+                        <img src="${contextPath}/images/user4-128x128.jpg" class="rounded-circle" alt="User Image">
                       </div>
                       <div class="mail-contnet">
                          <h4>
@@ -207,7 +237,7 @@
             <ul class="dropdown-menu animated fadeInDown">
 				
 			  <li class="header">
-				<div class="bg-img text-white p-20" style="background-image: url(../images/user-info.jpg)" data-overlay="5">
+				<div class="bg-img text-white p-20" style="background-image: url(${contextPath}/images/user-info.jpg)" data-overlay="5">
 					<div class="flexbox">
 						<div>
 							<h3 class="mb-0 mt-0">7 New</h3>
@@ -271,7 +301,7 @@
             <ul class="dropdown-menu animated fadeInDown">
 				
 			  <li class="header">
-				<div class="bg-img text-white p-20" style="background-image: url(../images/user-info.jpg)" data-overlay="5">
+				<div class="bg-img text-white p-20" style="background-image: url(${contextPath}/images/user-info.jpg)" data-overlay="5">
 					<div class="flexbox">
 						<div>
 							<h3 class="mb-0 mt-0">6 New</h3>
@@ -573,48 +603,3 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
-  
-	<!-- jQuery 3 -->
-	<script src="../assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
-	<!-- jQuery UI 1.11.4 -->
-	<script src="../assets/vendor_components/jquery-ui/jquery-ui.js"></script>
-	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-	<script>
-	  $.widget.bridge('uibutton', $.ui.button);
-	</script>
-	<!-- popper -->
-	<script src="../assets/vendor_components/popper/dist/popper.min.js"></script>
-	
-	<!-- date-range-picker -->
-	<script src="../assets/vendor_components/moment/min/moment.min.js"></script>
-	<script src="../assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-	
-	<!-- Bootstrap 4.0-->
-	<script src="../assets/vendor_components/bootstrap/dist/js/bootstrap.js"></script>	
-	
-	<!-- ChartJS -->
-	<script src="../assets/vendor_components/chart.js-master/Chart.min.js"></script>
-	
-	<!-- Slimscroll -->
-	<script src="../assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js"></script>
-	
-	<!-- FastClick -->
-	<script src="../assets/vendor_components/fastclick/lib/fastclick.js"></script>
-		
-	<!-- Morris.js charts -->
-	<script src="../assets/vendor_components/raphael/raphael.min.js"></script>
-	<script src="../assets/vendor_components/morris.js/morris.min.js"></script>
-
-	<!-- This is data table -->
-    <script src="../assets/vendor_components/datatable/datatables.min.js"></script>
-	
-	<!-- Superieur Admin App -->
-	<script src="../assets/js/template.js"></script>
-	
-	<!-- Superieur Admin dashboard demo (This is only for demo purposes) -->
-	<script src="../assets/js/pages/dashboard.js"></script>
-	
-	<!-- Superieur Admin for demo purposes -->
-	<script src="../assets/js/demo.js"></script>	
-</body>
-</html>

@@ -16,23 +16,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>用户管理</title>
-    <!-- bootstrap.css-->
-    <link rel="stylesheet" type="text/css" media="screen" href="${contextPath }/static/js/bootstrap/css/bootstrap.css">
-    <!-- bootstrap-table.css -->
-    <link rel="stylesheet" type="text/css" media="screen" href="${contextPath }/static/js/bootstrap/bootstrap-table/bootstrap-table.css">
-    <!-- jquery-3.3.1.js -->
-    <script src="${contextPath }/static/js/jquery-3.3.1.js"></script>
-    <!-- bootstrap.js -->
-    <script src="${contextPath }/static/js/bootstrap/js/bootstrap.js"></script>
-    <!-- bootstrap-table.js -->
-    <script src="${contextPath}/static/js/bootstrap/bootstrap-table/bootstrap-table.js"></script>
-    <!-- bootstrap-table-zh-CN.js -->
-    <script src="${contextPath}/static/js/bootstrap/bootstrap-table/bootstrap-table-zh-CN.js"></script>
 </head>
-<body>
-    <span>用户管理</span>
-    <span>${contextPath}</span>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <%@include file="../head.jsp"%>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <span>用户管理</span>
+        <span>${contextPath}</span>
+    </div>
+</div>
 </body>
 </html>

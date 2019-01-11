@@ -103,9 +103,8 @@
     </bean>
 
     <!-- 静态资源访问 -->
-    <mvc:resources location="/static/js/" mapping="/static/js/**"/>
-    <mvc:resources location="/static/css/" mapping="/static/css/**"/>
-    <mvc:resources location="/static/img/" mapping="/static/img/**"/>
-    <mvc:resources location="/static/font/" mapping="/static/font/**"/>
-    <mvc:resources location="/static/ico/" mapping="/static/ico/**"/>
+    <mvc:resources location="/static/js/" mapping="/js/**"/>
+    <mvc:resources location="/static/css/" mapping="/css/**"/>
+    <mvc:resources location="/static/assets/" mapping="/assets/**"/>
+    <mvc:resources location="/static/images/" mapping="/images/**"/>
 </beans>
