@@ -16,16 +16,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="${contextPath}/images/favicon.ico">
     <title>用户管理</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+    <!-- Heade Navbar, Control Sidebar-->
     <%@include file="../head.jsp"%>
+    <!-- Left side column. contains the logo and sidebar -->
+    <%@include file="../left.jsp"%>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <span>用户管理</span>
         <span>${contextPath}</span>
     </div>
+    <!-- foot -->
+    <%@include file="../foot.jsp"%>
 </div>
 </body>
 </html>
