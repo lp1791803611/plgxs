@@ -1319,7 +1319,7 @@ button,
 	}
 }
 
-/* Page Wrapper + Menu */
+/* PageResult Wrapper + Menu */
 
 #page-wrapper {
 	@include vendor('transition', 'opacity #{_duration(menu)} ease');
