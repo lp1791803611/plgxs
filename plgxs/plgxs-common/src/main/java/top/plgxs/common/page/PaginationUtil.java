@@ -1,4 +1,4 @@
-package top.plgxs.common;
+package top.plgxs.common.page;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -234,4 +234,15 @@
       email_verification_code = #{emailVerificationCode,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByParam" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from plg_user
+    where 1=1
+      <if test="key != null and key != ''">
+        and id = #{key,jdbcType=VARCHAR}
+      </if>
+  </select>
+
 </mapper>

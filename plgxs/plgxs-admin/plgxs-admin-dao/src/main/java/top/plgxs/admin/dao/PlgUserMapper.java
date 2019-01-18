@@ -1,6 +1,9 @@
 package top.plgxs.admin.dao;
 
+import org.apache.ibatis.annotations.Param;
 import top.plgxs.admin.entity.PlgUser;
+
+import java.util.List;
 
 public interface PlgUserMapper {
     int deleteByPrimaryKey(String id);
@@ -14,4 +17,6 @@ public interface PlgUserMapper {
     int updateByPrimaryKeySelective(PlgUser record);
 
     int updateByPrimaryKey(PlgUser record);
+
+    List<PlgUser> selectByParam(@Param("key") String key);
 }
