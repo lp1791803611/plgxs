@@ -27,6 +27,104 @@
 </div>
 <!-- 引入公共js -->
 <%@include file="../javascript.jsp"%>
+<script type="text/javascript">
+	//生成用户数据
+	$('#mytab').bootstrapTable({
+	    method: 'post',
+	    contentType: "application/json",//必须要有！！！！
+	    url:"${contextPath }/user/queryList",//要请求数据的文件路径
+	    //height:tableHeight(),//高度调整
+	    toolbar: '#toolbar',//指定工具栏
+	    striped: true, //是否显示行间隔色
+	    pagination:true,//是否分页
+	    queryParamsType:'limit',//查询参数组织方式
+	    queryParams:queryParams,//请求服务器时所传的参数
+	    sidePagination:'server',//指定服务器端分页
+	    pageNumber: 1, //初始化加载第一页，默认第一页
+	    pageSize:10,//单页记录数
+	    pageList:[10, 20, 50, 100],//分页步进值
+	    showRefresh:false,//刷新按钮
+	    showColumns:false,//是否显示 内容列下拉框
+	    clickToSelect: true,//是否启用点击选中行
+	    toolbarAlign:'right',//工具栏对齐方式
+	    buttonsAlign:'right',//按钮对齐方式   	    
+	    columns:[
+	        {
+	        	checkbox:true,	        	
+	        },{
+	            title:'No',
+	            field:'id',
+	            formatter:sumNumber
+	        },{
+	            title:'用户名',
+	            field:'username'
+	        },{
+	            title:'手机号',
+	            field:'mobile'
+	        },{
+	            title:'邮箱',
+	            field:'email'
+	        },{
+	            title:'性别',
+	            field:'gender',
+                formatter:genderFormatter
+	        },{
+	            title:'状态',
+	            field:'status',
+	            formatter:statusFormatter
+	        },{
+	            title:'最后登录时间',
+	            field:'lastLoginTime',
+	            formatter:dateFormat
+	        }
+	    ],
+	    responseHandler:function(res) { 
+	    	p = res.page;
+	    	s = res.pageSize;
+	    	return res;
+	    },
+	    onClickRow: function (row, $element) { 	    	
+	    	//changeFixedTable(row, $element[0])
+	    }
+	});
 
+    //请求服务数据时所传参数
+    function queryParams(params){
+        var result = {
+            pageSize:params.limit,
+            pageNumber:Math.ceil(params.offset / params.limit) + 1,
+            quotationNo:$("#quotationNo").val(),
+            demandNo:$("#demandNo").val(),
+            demandName:$("#demandName").val(),
+            qStatus:$("#qStatus").val(),
+            toBeRenewed:$('#toBeRenewed').val(),
+            legalEntity:$("#legalEntity").val(),
+            yearno:$("#yearno").val() == null?"":$("#yearno").val()
+        };
+        return result;
+    }
+
+    //回车
+    function EnterPress(e){ //传入 event
+        var e = e || window.event;
+        if(e.keyCode == 13){
+            selectByKeyWord();
+        }
+    }
+    //change and search event
+    function selectByKeyWord(){
+        $('#mytab').bootstrapTable('refreshOptions',{pageNumber:1,pageSize:10});
+    }
+
+    var p = 1;
+    var s = 10;
+    //计数
+    function sumNumber(value,row,index){
+        var result = "";
+        result += (p*s-s+index+1);
+        return result;
+    }
+    
+</script>
 </body>
 </html>

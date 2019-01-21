@@ -50,3 +50,6 @@
 <!-- Bootstrap table -->
 <script src="${contextPath}/js/bootstrap/bootstrap-table/bootstrap-table.js"></script>
 <script src="${contextPath}/js/bootstrap/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+
+<!-- My Js -->
+<script src="${contextPath}/js/myJs.js"></script>

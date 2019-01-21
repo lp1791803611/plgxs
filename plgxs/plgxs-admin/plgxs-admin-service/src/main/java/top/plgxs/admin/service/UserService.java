@@ -29,4 +29,13 @@ public interface UserService {
      * @return: top.plgxs.common.result.ResultInfo<top.plgxs.admin.entity.PlgUser>
      **/
     ResultInfo<PlgUser> saveUser(PlgUser user);
+
+    /**
+     * @Description: 根据主键进行查询
+     * @Author: Strangers。
+     * @Date: 17:23 2019/1/21
+     * @Param: [id]
+     * @return: top.plgxs.admin.entity.PlgUser
+     **/
+    PlgUser queryById(String id);
 }

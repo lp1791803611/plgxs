@@ -1,12 +1,15 @@
 package top.plgxs.admin.controller.user;
 
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import top.plgxs.admin.entity.PlgUser;
 import top.plgxs.admin.service.UserService;
 import top.plgxs.common.page.PageParam;
@@ -54,6 +57,17 @@ public class UserController {
             return new PageResult<>(pageInfo.getList(),pageInfo.getTotal());
         }
         return null;
+    }
+
+    @GetMapping("/editUser")
+    public ModelAndView editUser(String id){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/user/editUser");
+        if(StringUtils.isNotBlank(id)){
+            PlgUser user = userService.queryById(id);
+            mav.addObject("user",user);
+        }
+        return mav;
     }
 
     @PostMapping("/saveUser")

@@ -2,13 +2,20 @@ package top.plgxs.admin.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.IdGenerator;
 import top.plgxs.admin.dao.PlgUserMapper;
 import top.plgxs.admin.entity.PlgUser;
 import top.plgxs.admin.service.UserService;
+import top.plgxs.common.IDGenerator;
 import top.plgxs.common.page.PageParam;
+import top.plgxs.common.result.ResultCode;
 import top.plgxs.common.result.ResultInfo;
+import top.plgxs.common.result.ResultUtil;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,6 +25,7 @@ import java.util.List;
  * @Date: 15:15 2019/1/17
  * @Version: 1.0
  */
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private PlgUserMapper userMapper;
@@ -36,6 +44,26 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResultInfo<PlgUser> saveUser(PlgUser user) {
-        return null;
+        int result = -1;
+        if(user != null){
+            // 编辑保存
+            if(StringUtils.isNotBlank(user.getId())){
+                user.setUpdateTime(new Date());
+                result = userMapper.updateByPrimaryKeySelective(user);
+            }else{ // 新增保存
+                user.setId(IDGenerator.generator());
+                user.setRegisterTime(new Date());
+                result = userMapper.insertSelective(user);
+            }
+        }
+        if(result > -1){
+            return ResultUtil.getSuccessResult(null);
+        }
+        return ResultUtil.getFailResult(ResultCode.SAVE_ERROR);
+    }
+
+    @Override
+    public PlgUser queryById(String id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 }
