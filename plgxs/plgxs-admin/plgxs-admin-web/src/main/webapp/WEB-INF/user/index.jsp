@@ -92,14 +92,7 @@
     function queryParams(params){
         var result = {
             pageSize:params.limit,
-            pageNumber:Math.ceil(params.offset / params.limit) + 1,
-            quotationNo:$("#quotationNo").val(),
-            demandNo:$("#demandNo").val(),
-            demandName:$("#demandName").val(),
-            qStatus:$("#qStatus").val(),
-            toBeRenewed:$('#toBeRenewed').val(),
-            legalEntity:$("#legalEntity").val(),
-            yearno:$("#yearno").val() == null?"":$("#yearno").val()
+            pageNumber:Math.ceil(params.offset / params.limit) + 1            
         };
         return result;
     }
@@ -118,13 +111,26 @@
 
     var p = 1;
     var s = 10;
-    //计数
-    function sumNumber(value,row,index){
-        var result = "";
-        result += (p*s-s+index+1);
-        return result;
-    }
     
+	// 性别
+    function genderFormatter(gender){
+		if(gender == 1){
+			return "男";
+		}else if(gender == 2){
+			return "女";
+		}else{
+			return "保密";
+		}	
+	}
+	
+	// 用户状态
+	function statusFormatter(state){
+		if(state == 0){
+			return "正常";
+		}else if(state == 1){
+			return "冻结";
+		}
+	}
 </script>
 </body>
 </html>
