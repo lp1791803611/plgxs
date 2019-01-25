@@ -54,7 +54,7 @@
 	        },{
 	            title:'No',
 	            field:'id',
-	            formatter:sumNumber
+	            formatter:orderNumber
 	        },{
 	            title:'用户名',
 	            field:'username'
@@ -74,8 +74,7 @@
 	            formatter:statusFormatter
 	        },{
 	            title:'最后登录时间',
-	            field:'lastLoginTime',
-	            formatter:dateFormat
+	            field:'lastLoginTime'
 	        }
 	    ],
 	    responseHandler:function(res) { 
@@ -92,7 +91,7 @@
     function queryParams(params){
         var result = {
             pageSize:params.limit,
-            pageNumber:Math.ceil(params.offset / params.limit) + 1            
+            page:Math.ceil(params.offset / params.limit) + 1
         };
         return result;
     }
@@ -111,7 +110,13 @@
 
     var p = 1;
     var s = 10;
-    
+    // 计数
+    function orderNumber(value,row,index){
+        var result = "";
+        result += (p*s-s+index+1);
+        return result;
+    }
+
 	// 性别
     function genderFormatter(gender){
 		if(gender == 1){
@@ -131,6 +136,7 @@
 			return "冻结";
 		}
 	}
+
 </script>
 </body>
 </html>

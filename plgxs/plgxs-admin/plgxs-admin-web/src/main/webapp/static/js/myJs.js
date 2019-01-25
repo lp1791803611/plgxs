@@ -1,17 +1,17 @@
 // 计数
-function sumNumber(value,row,index){
+function sumNumber(page,size,index){
 	var result = "";
-	result += (p*s-s+index+1);
+	result += (page*size-size+index+1);
 	return result;
 }
 
 // 格式化时间
-function dateFormat(longTypeDate){
+function dateFormat(value,row,index){
     var dateType = "";
-    if(longTypeDate != null && longTypeDate != ''){
+    if(value != null && value != ''){
         var date = new Date();
-        date.setTime(longTypeDate);
-        dateType = date.getFullYear()+"-"+getMonth(date)+"-"+getDay(date); 
+        date.setTime(value);
+        dateType = date.getFullYear()+"-"+getMonth(date)+"-"+getDay(date);
 		// yyyy-MM-dd格式日期
     }
     return dateType;

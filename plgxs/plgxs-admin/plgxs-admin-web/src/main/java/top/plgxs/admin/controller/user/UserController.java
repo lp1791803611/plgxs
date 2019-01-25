@@ -5,10 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import top.plgxs.admin.entity.PlgUser;
 import top.plgxs.admin.service.UserService;
@@ -50,6 +47,7 @@ public class UserController {
      * @Param: [param]
      * @return: top.plgxs.common.page.PageResult<top.plgxs.admin.entity.PlgUser>
      **/
+    @ResponseBody
     @PostMapping("/queryList")
     public PageResult<PlgUser> queryList(@RequestBody PageParam param){
         PageInfo<PlgUser> pageInfo = userService.queryList(param);
@@ -70,6 +68,7 @@ public class UserController {
         return mav;
     }
 
+    @ResponseBody
     @PostMapping("/saveUser")
     public ResultInfo<PlgUser> saveUser(@RequestBody PlgUser user){
         return userService.saveUser(user);

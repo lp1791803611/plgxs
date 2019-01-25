@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!-- jQuery 3 -->
 <script src="${contextPath}/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
