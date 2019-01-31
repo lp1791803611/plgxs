@@ -2,6 +2,7 @@ package top.plgxs.common.page;
 
 import java.io.Serializable;
 import java.util.List;
+
 /**
  * @ClassName: PageResult
  * @Description: 分页返回工具类
@@ -9,13 +10,24 @@ import java.util.List;
  * @Date: 15:39 2019/1/17
  * @Version: 1.0
  */
-public class PageResult<T> implements Serializable{
+public class PageResult<T> implements Serializable {
     private static final long serialVersionUID = -3051720531650653100L;
-
-    private long page;//当前页
-    private long pageSize;//条数
-    private long total;//总条数
-	private List<T> rows;
+    /**
+     * 当前页
+     */
+    private long page;
+    /**
+     * 条数
+     */
+    private long pageSize;
+    /**
+     * 总条数
+     */
+    private long total;
+    /**
+     * 数据
+     */
+    private List<T> rows;
 
     public PageResult() {
         super();
@@ -24,6 +36,13 @@ public class PageResult<T> implements Serializable{
     public PageResult(List<T> rows, long total) {
         this.rows = rows;
         this.total = total;
+    }
+
+    public PageResult(long page, long pageSize, long total, List<T> rows) {
+        this.page = page;
+        this.pageSize = pageSize;
+        this.total = total;
+        this.rows = rows;
     }
 
     public long getPage() {

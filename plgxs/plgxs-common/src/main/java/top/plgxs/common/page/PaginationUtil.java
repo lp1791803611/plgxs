@@ -6,31 +6,32 @@ import java.util.List;
 
 /**
  * 分页公共方法
+ * 
  * @author lipian
  */
 public class PaginationUtil implements Serializable {
 
     /**
-     *Comment for <code>serialVersionUID</code>
+     * Comment for <code>serialVersionUID</code>
      */
     private static final long serialVersionUID = 1L;
 
-    private int               num              = 1;   // 当前页号, 采用自然数计数 1,2,3,...
-    private int               size             = 4;   // 页面大小:一个页面显示多少个数据
-    private int               rowCount;               // 数据总数：一共有多少个数据
-    private int               pageCount;              // 页面总数
-    private int               startRow;               // 当前页面开始行, 第一行是0行
-    private int               first            = 1;   // 第一页 页号
-    private int               last;                   // 最后页 页号
-    private int               next;                   // 下一页 页号
-    private int               prev;                   // 前页 页号
-    private int               start;                  // 页号式导航, 起始页号
-    private int               end;                    // 页号式导航, 结束页号
-    private int               numCount         = 9;   // 页号式导航, 最多显示页号数量为numCount+1;这里显示11页。
-    private String            url;                    //链接地址
+    private int num = 1; // 当前页号, 采用自然数计数 1,2,3,...
+    private int size = 4; // 页面大小:一个页面显示多少个数据
+    private int rowCount; // 数据总数：一共有多少个数据
+    private int pageCount; // 页面总数
+    private int startRow; // 当前页面开始行, 第一行是0行
+    private int first = 1; // 第一页 页号
+    private int last; // 最后页 页号
+    private int next; // 下一页 页号
+    private int prev; // 前页 页号
+    private int start; // 页号式导航, 起始页号
+    private int end; // 页号式导航, 结束页号
+    private int numCount = 9; // 页号式导航, 最多显示页号数量为numCount+1;这里显示11页。
+    private String url; // 链接地址
 
-    private String            pageHtml;               //生成html
-    private List<String>      pageNumbers      = null;
+    private String pageHtml; // 生成html
+    private List<String> pageNumbers = null;
 
     public PaginationUtil(int num, int size) {
         this.num = num;
@@ -39,7 +40,7 @@ public class PaginationUtil implements Serializable {
 
     public void createPagination(int rowCount) {
         this.rowCount = rowCount;
-        this.pageCount = (int) Math.ceil((double) rowCount / size);
+        this.pageCount = (int)Math.ceil((double)rowCount / size);
 
         this.num = Math.min(this.num, pageCount);
         this.num = Math.max(1, this.num);
@@ -62,11 +63,11 @@ public class PaginationUtil implements Serializable {
         }
     }
 
-    public PaginationUtil(int size, String str_num, int rowCount) {
+    public PaginationUtil(int size, String strNum, int rowCount) {
         int num = 1;
-        if (str_num != null) {
+        if (strNum != null) {
             try {
-                num = Integer.parseInt(str_num);
+                num = Integer.parseInt(strNum);
             } catch (Exception e) {
                 num = 1;
             }
@@ -74,7 +75,7 @@ public class PaginationUtil implements Serializable {
         this.num = num;
         this.size = size;
         this.rowCount = rowCount;
-        this.pageCount = (int) Math.ceil((double) rowCount / size);
+        this.pageCount = (int)Math.ceil((double)rowCount / size);
 
         this.num = Math.min(this.num, pageCount);
         this.num = Math.max(1, this.num);
@@ -92,11 +93,11 @@ public class PaginationUtil implements Serializable {
         }
     }
 
-    public PaginationUtil(int size, String str_num, int rowCount, String url) {
+    public PaginationUtil(int size, String strNum, int rowCount, String url) {
         int num = 1;
-        if (str_num != null) {
+        if (strNum != null) {
             try {
-                num = Integer.parseInt(str_num);
+                num = Integer.parseInt(strNum);
             } catch (Exception e) {
                 num = 1;
             }
@@ -105,7 +106,7 @@ public class PaginationUtil implements Serializable {
         this.num = num;
         this.size = size;
         this.rowCount = rowCount;
-        this.pageCount = (int) Math.ceil((double) rowCount / size);
+        this.pageCount = (int)Math.ceil((double)rowCount / size);
 
         this.num = Math.min(this.num, pageCount);
         this.num = Math.max(1, this.num);
@@ -229,6 +230,7 @@ public class PaginationUtil implements Serializable {
 
     /**
      * 从多少页开始查起
+     * 
      * @return
      */
     public int getStartNumber() {
@@ -264,8 +266,7 @@ public class PaginationUtil implements Serializable {
         }
 
         if (num != 0 && pageCount != 0 && num != pageCount) {
-            stb.append("<a href='" + (url + next) + "'>下一页</a><a href='" + (url + last)
-                    + "'>尾页</a>");
+            stb.append("<a href='" + (url + next) + "'>下一页</a><a href='" + (url + last) + "'>尾页</a>");
         } else {
             stb.append("<span class='prev-disabled'> 下一页</span> ");
         }
@@ -286,4 +287,3 @@ public class PaginationUtil implements Serializable {
     }
 
 }
-

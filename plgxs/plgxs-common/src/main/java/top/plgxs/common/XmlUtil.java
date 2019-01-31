@@ -2,55 +2,56 @@ package top.plgxs.common;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import org.dom4j.Attribute;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
+import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.gjt.xpp.XmlPullParserException;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class XmlUtil {
-    public static void main(String[] args) throws DocumentException, IOException,
-            XmlPullParserException {
-        //        String textFromFile = "<?xml version=\"1.0\" encoding=\"GB2312\"?><List><response><DATETIME>2016-09-12 14:01:44</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94982.5900</MONEY><ORDERID1>1609121401449204</ORDERID1><ORDERID2>20160912140932664653</ORDERID2><TELPHONE>13911936791</TELPHONE><FACE>20</FACE><NOTE>13911936791交20</NOTE></response><response><DATETIME>2016-09-12 14:32:05</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94962.5900</MONEY><ORDERID1>1609121432050778</ORDERID1><ORDERID2>20160912140913664657</ORDERID2><TELPHONE>13661313537</TELPHONE><FACE>20</FACE><NOTE>13661313537交20</NOTE></response><response><DATETIME>2016-09-20 09:50:26</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94942.5900</MONEY><ORDERID1>1609200950265336</ORDERID1><ORDERID2>20160920100954664772</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-20 16:31:18</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94922.5900</MONEY><ORDERID1>1609201631188972</ORDERID1><ORDERID2>20160920170948664803</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-20 16:47:05</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94902.5900</MONEY><ORDERID1>1609201647055476</ORDERID1><ORDERID2>20160920170935664807</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-22 16:02:05</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94882.5900</MONEY><ORDERID1>1609221602054172</ORDERID1><ORDERID2>20160922160943664882</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-22 16:03:23</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94862.5900</MONEY><ORDERID1>1609221603235637</ORDERID1><ORDERID2>20160922160942664884</ORDERID2><TELPHONE>15273460971</TELPHONE><FACE>20</FACE><NOTE>15273460971交20</NOTE></response><response><DATETIME>2016-09-23 14:18:35</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94842.5900</MONEY><ORDERID1>1609231418353976</ORDERID1><ORDERID2>20160923140919664955</ORDERID2><TELPHONE>13661313528</TELPHONE><FACE>20</FACE><NOTE>13661313528交20</NOTE></response><response><DATETIME>2016-09-23 14:20:16</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94822.5900</MONEY><ORDERID1>1609231420169137</ORDERID1><ORDERID2>20160923140946664957</ORDERID2><TELPHONE>15246223911</TELPHONE><FACE>20</FACE><NOTE>15246223911交20</NOTE></response><response><DATETIME>2016-09-26 15:04:23</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-49.6000</TRANSACTION><MONEY>94772.9900</MONEY><ORDERID1>1609261504233902</ORDERID1><ORDERID2>20160926150904664981</ORDERID2><TELPHONE>18804361234</TELPHONE><FACE>50</FACE><NOTE>18804361234交50</NOTE></response></List>";
-        //        Map<String, Object> map = xml2map(textFromFile, true);
-        //        JSON json = JSONObject.fromObject(map);
-        //        System.out.println(json.toString(1)); // 格式化输出
+    public static void main(String[] args) throws DocumentException, IOException, XmlPullParserException {
+        // String textFromFile = "<?xml version=\"1.0\" encoding=\"GB2312\"?><List><response><DATETIME>2016-09-12
+        // 14:01:44</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94982.5900</MONEY><ORDERID1>1609121401449204</ORDERID1><ORDERID2>20160912140932664653</ORDERID2><TELPHONE>13911936791</TELPHONE><FACE>20</FACE><NOTE>13911936791交20</NOTE></response><response><DATETIME>2016-09-12
+        // 14:32:05</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94962.5900</MONEY><ORDERID1>1609121432050778</ORDERID1><ORDERID2>20160912140913664657</ORDERID2><TELPHONE>13661313537</TELPHONE><FACE>20</FACE><NOTE>13661313537交20</NOTE></response><response><DATETIME>2016-09-20
+        // 09:50:26</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94942.5900</MONEY><ORDERID1>1609200950265336</ORDERID1><ORDERID2>20160920100954664772</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-20
+        // 16:31:18</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94922.5900</MONEY><ORDERID1>1609201631188972</ORDERID1><ORDERID2>20160920170948664803</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-20
+        // 16:47:05</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94902.5900</MONEY><ORDERID1>1609201647055476</ORDERID1><ORDERID2>20160920170935664807</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-22
+        // 16:02:05</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94882.5900</MONEY><ORDERID1>1609221602054172</ORDERID1><ORDERID2>20160922160943664882</ORDERID2><TELPHONE>15273460974</TELPHONE><FACE>20</FACE><NOTE>15273460974交20</NOTE></response><response><DATETIME>2016-09-22
+        // 16:03:23</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94862.5900</MONEY><ORDERID1>1609221603235637</ORDERID1><ORDERID2>20160922160942664884</ORDERID2><TELPHONE>15273460971</TELPHONE><FACE>20</FACE><NOTE>15273460971交20</NOTE></response><response><DATETIME>2016-09-23
+        // 14:18:35</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94842.5900</MONEY><ORDERID1>1609231418353976</ORDERID1><ORDERID2>20160923140919664955</ORDERID2><TELPHONE>13661313528</TELPHONE><FACE>20</FACE><NOTE>13661313528交20</NOTE></response><response><DATETIME>2016-09-23
+        // 14:20:16</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-20.0000</TRANSACTION><MONEY>94822.5900</MONEY><ORDERID1>1609231420169137</ORDERID1><ORDERID2>20160923140946664957</ORDERID2><TELPHONE>15246223911</TELPHONE><FACE>20</FACE><NOTE>15246223911交20</NOTE></response><response><DATETIME>2016-09-26
+        // 15:04:23</DATETIME><TYPE>缴费</TYPE><TRANSACTION>-49.6000</TRANSACTION><MONEY>94772.9900</MONEY><ORDERID1>1609261504233902</ORDERID1><ORDERID2>20160926150904664981</ORDERID2><TELPHONE>18804361234</TELPHONE><FACE>50</FACE><NOTE>18804361234交50</NOTE></response></List>";
+        // Map<String, Object> map = xml2map(textFromFile, true);
+        // JSON json = JSONObject.fromObject(map);
+        // System.out.println(json.toString(1)); // 格式化输出
         //
-        //        Document doc = map2xml(map, "root");
-        //        System.out.println(formatXml(doc));
+        // Document doc = map2xml(map, "root");
+        // System.out.println(formatXml(doc));
     }
 
     /**
      * xml转map 不带属性
+     * 
      * @param xmlStr
-     * @param needRootKey 是否需要在返回的map里加根节点键
+     * @param needRootKey
+     *            是否需要在返回的map里加根节点键
      * @return
      * @throws DocumentException
      * @throws XmlPullParserException
      * @throws IOException
      */
-    public static Map xml2map(String xmlStr, boolean needRootKey) throws DocumentException,
-            IOException,
-            XmlPullParserException {
+    public static Map xml2map(String xmlStr, boolean needRootKey)
+        throws DocumentException, IOException, XmlPullParserException {
         Document doc = DocumentHelper.parseText(xmlStr);
         Element root = doc.getRootElement();
-        Map<String, Object> map = (Map<String, Object>) xml2map(root);
+        Map<String, Object> map = (Map<String, Object>)xml2map(root);
         if (root.elements().size() == 0 && root.attributes().size() == 0) {
             return map;
         }
         if (needRootKey) {
-            //在返回的map里加根节点键（如果需要）
+            // 在返回的map里加根节点键（如果需要）
             Map<String, Object> rootMap = new HashMap<String, Object>();
             rootMap.put(root.getName(), map);
             return rootMap;
@@ -60,20 +61,22 @@ public class XmlUtil {
 
     /**
      * xml转map 带属性
+     * 
      * @param xmlStr
-     * @param needRootKey 是否需要在返回的map里加根节点键
+     * @param needRootKey
+     *            是否需要在返回的map里加根节点键
      * @return
      * @throws DocumentException
      */
     public static Map xml2mapWithAttr(String xmlStr, boolean needRootKey) throws DocumentException {
         Document doc = DocumentHelper.parseText(xmlStr);
         Element root = doc.getRootElement();
-        Map<String, Object> map = (Map<String, Object>) xml2mapWithAttr(root);
+        Map<String, Object> map = (Map<String, Object>)xml2mapWithAttr(root);
         if (root.elements().size() == 0 && root.attributes().size() == 0) {
-            return map; //根节点只有一个文本内容
+            return map; // 根节点只有一个文本内容
         }
         if (needRootKey) {
-            //在返回的map里加根节点键（如果需要）
+            // 在返回的map里加根节点键（如果需要）
             Map<String, Object> rootMap = new HashMap<String, Object>();
             rootMap.put(root.getName(), map);
             return rootMap;
@@ -83,6 +86,7 @@ public class XmlUtil {
 
     /**
      * xml转map 不带属性
+     * 
      * @param e
      * @return
      */
@@ -91,7 +95,7 @@ public class XmlUtil {
         List list = e.elements();
         if (list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
-                Element iter = (Element) list.get(i);
+                Element iter = (Element)list.get(i);
                 List mapList = new ArrayList();
 
                 if (iter.elements().size() > 0) {
@@ -104,12 +108,13 @@ public class XmlUtil {
                             mapList.add(m);
                         }
                         if (obj instanceof List) {
-                            mapList = (List) obj;
+                            mapList = (List)obj;
                             mapList.add(m);
                         }
                         map.put(iter.getName(), mapList);
-                    } else
+                    } else {
                         map.put(iter.getName(), m);
+                    }
                 } else {
                     if (map.get(iter.getName()) != null) {
                         Object obj = map.get(iter.getName());
@@ -119,21 +124,25 @@ public class XmlUtil {
                             mapList.add(iter.getText());
                         }
                         if (obj instanceof List) {
-                            mapList = (List) obj;
+                            mapList = (List)obj;
                             mapList.add(iter.getText());
                         }
                         map.put(iter.getName(), mapList);
-                    } else
+                    } else {
                         map.put(iter.getName(), iter.getText());
+                    }
+
                 }
             }
-        } else
+        } else {
             map.put(e.getName(), e.getText());
+        }
         return map;
     }
 
     /**
      * xml转map 带属性
+     * 
      * @param element
      * @return
      */
@@ -161,12 +170,13 @@ public class XmlUtil {
                             mapList.add(m);
                         }
                         if (obj instanceof List) {
-                            mapList = (List) obj;
+                            mapList = (List)obj;
                             mapList.add(m);
                         }
                         map.put(iter.getName(), mapList);
-                    } else
+                    } else {
                         map.put(iter.getName(), m);
+                    }
                 } else {
 
                     List<Attribute> listAttr = iter.attributes(); // 当前节点的所有属性的list
@@ -194,7 +204,7 @@ public class XmlUtil {
                             }
                         }
                         if (obj instanceof List) {
-                            mapList = (List) obj;
+                            mapList = (List)obj;
                             // mapList.add(iter.getText());
                             if (hasAttributes) {
                                 attrMap.put("#text", iter.getText());
@@ -228,38 +238,39 @@ public class XmlUtil {
 
     /**
      * map转xml map中没有根节点的键
+     * 
      * @param map
      * @param rootName
      * @throws DocumentException
      * @throws IOException
      */
-    public static Document map2xml(Map<String, Object> map,
-                                   String rootName) throws DocumentException, IOException {
+    public static Document map2xml(Map<String, Object> map, String rootName) throws DocumentException, IOException {
         Document doc = DocumentHelper.createDocument();
         Element root = DocumentHelper.createElement(rootName);
         doc.add(root);
         map2xml(map, root);
-        //System.out.println(doc.asXML());
-        //System.out.println(formatXml(doc));
+        // System.out.println(doc.asXML());
+        // System.out.println(formatXml(doc));
         return doc;
     }
 
     /**
      * map转xml map中含有根节点的键
+     * 
      * @param map
      * @throws DocumentException
      * @throws IOException
      */
     public static Document map2xml(Map<String, Object> map) throws DocumentException, IOException {
         Iterator<Map.Entry<String, Object>> entries = map.entrySet().iterator();
-        if (entries.hasNext()) { //获取第一个键创建根节点
+        if (entries.hasNext()) { // 获取第一个键创建根节点
             Map.Entry<String, Object> entry = entries.next();
             Document doc = DocumentHelper.createDocument();
             Element root = DocumentHelper.createElement(entry.getKey());
             doc.add(root);
-            map2xml((Map) entry.getValue(), root);
-            //System.out.println(doc.asXML());
-            //System.out.println(formatXml(doc));
+            map2xml((Map)entry.getValue(), root);
+            // System.out.println(doc.asXML());
+            // System.out.println(formatXml(doc));
             return doc;
         }
         return null;
@@ -267,8 +278,10 @@ public class XmlUtil {
 
     /**
      * map转xml
+     * 
      * @param map
-     * @param body xml元素
+     * @param body
+     *            xml元素
      * @return
      */
     private static Element map2xml(Map<String, Object> map, Element body) {
@@ -277,38 +290,39 @@ public class XmlUtil {
             Map.Entry<String, Object> entry = entries.next();
             String key = entry.getKey();
             Object value = entry.getValue();
-            if (key.startsWith("@")) { //属性
+            if (key.startsWith("@")) { // 属性
                 body.addAttribute(key.substring(1, key.length()), value.toString());
-            } else if (key.equals("#text")) { //有属性时的文本
+            } else if ("#text".equals(key)) { // 有属性时的文本
                 body.setText(value.toString());
             } else {
                 if (value instanceof java.util.List) {
-                    List list = (List) value;
+                    List list = (List)value;
                     Object obj;
                     for (int i = 0; i < list.size(); i++) {
                         obj = list.get(i);
-                        //list里是map或String，不会存在list里直接是list的，
+                        // list里是map或String，不会存在list里直接是list的，
                         if (obj instanceof java.util.Map) {
                             Element subElement = body.addElement(key);
-                            map2xml((Map) list.get(i), subElement);
+                            map2xml((Map)list.get(i), subElement);
                         } else {
-                            body.addElement(key).setText((String) list.get(i));
+                            body.addElement(key).setText((String)list.get(i));
                         }
                     }
                 } else if (value instanceof java.util.Map) {
                     Element subElement = body.addElement(key);
-                    map2xml((Map) value, subElement);
+                    map2xml((Map)value, subElement);
                 } else {
                     body.addElement(key).setText(value.toString());
                 }
             }
-            //System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+            // System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
         return body;
     }
 
     /**
      * 格式化输出xml
+     * 
      * @param xmlStr
      * @return
      * @throws DocumentException
@@ -321,6 +335,7 @@ public class XmlUtil {
 
     /**
      * 格式化输出xml
+     * 
      * @param document
      * @return
      * @throws DocumentException
@@ -329,7 +344,7 @@ public class XmlUtil {
     public static String formatXml(Document document) throws DocumentException, IOException {
         // 格式化输出格式
         OutputFormat format = OutputFormat.createPrettyPrint();
-        //format.setEncoding("UTF-8");
+        // format.setEncoding("UTF-8");
         StringWriter writer = new StringWriter();
         // 格式化输出流
         XMLWriter xmlWriter = new XMLWriter(writer, format);
