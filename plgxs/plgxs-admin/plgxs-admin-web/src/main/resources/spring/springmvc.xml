@@ -53,6 +53,8 @@
 					<array>
 						<!--此配置用于将Date类型转化为dateFormat对应的格式-->
 						<value>WriteDateUseDateFormat</value>
+                        <!--设置null值也要输出，fastjson默认是关闭的-->
+                        <value>WriteMapNullValue</value>
 					</array>
 				</property>
 			</bean>
