@@ -1,41 +1,41 @@
 package top.plgxs.admin.service;
 
 import com.github.pagehelper.PageInfo;
+
 import top.plgxs.admin.entity.PlgUser;
 import top.plgxs.common.page.PageParam;
 import top.plgxs.common.result.ResultInfo;
 
 /**
- * @ClassName: UserService
- * @Description: 用户
- * @Author: Strangers。
- * @Date: 15:15 2019/1/17
- * @Version: 1.0
+ * 用户
+ * 
+ * @author Strangers。
+ * @date 15:15 2019/1/17
+ * @version 1.0
  */
 public interface UserService {
     /**
-     * @Description: 分页查询
-     * @Author: Strangers。
-     * @Date: 15:16 2019/1/17
-     * @Param: []
-     * @return: com.github.pagehelper.PageInfo<top.plgxs.admin.entity.PlgUser>
-     **/
+     * 分页查询
+     * @param param 
+     * @return
+     */
     PageInfo<PlgUser> queryList(PageParam param);
+
     /**
-     * @Description: 保存
-     * @Author: Strangers。
-     * @Date: 16:40 2019/1/17
-     * @Param: [user]
-     * @return: top.plgxs.common.result.ResultInfo<top.plgxs.admin.entity.PlgUser>
-     **/
+     * 保存
+     * @param user 用户信息
+     * @author Stranger
+     * @date 16:59 2019/1/29
+     * @return ResultInfo<PlgUser>
+     */
     ResultInfo<PlgUser> saveUser(PlgUser user);
 
     /**
-     * @Description: 根据主键进行查询
-     * @Author: Strangers。
-     * @Date: 17:23 2019/1/21
-     * @Param: [id]
-     * @return: top.plgxs.admin.entity.PlgUser
-     **/
+     * 根据主键进行查询
+     * @param id 主键
+     * @author Stranger
+     * @date 16:53 2019/1/29
+     * @return top.plgxs.admin.entity.PlgUser
+     */
     PlgUser queryById(String id);
 }

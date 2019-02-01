@@ -17,9 +17,9 @@ import org.mybatis.generator.internal.DefaultCommentGenerator;
 public class MyCommentGenerator extends DefaultCommentGenerator {
     private Properties properties;
     private Properties systemPro;
-    private boolean    suppressDate;
-    private boolean    suppressAllComments;
-    private String     currentDateStr;
+    private boolean suppressDate;
+    private boolean suppressAllComments;
+    private String currentDateStr;
 
     public MyCommentGenerator() {
         super();
@@ -30,8 +30,9 @@ public class MyCommentGenerator extends DefaultCommentGenerator {
         currentDateStr = (new SimpleDateFormat("yyyy-MM-dd")).format(new Date());
     }
 
+    @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable,
-                                IntrospectedColumn introspectedColumn) {
+        IntrospectedColumn introspectedColumn) {
         if (suppressAllComments) {
             return;
         }
@@ -43,30 +44,34 @@ public class MyCommentGenerator extends DefaultCommentGenerator {
         field.addJavaDocLine(" */");
     }
 
+    @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable) {
 
     }
 
+    @Override
     public void addGeneralMethodComment(Method method, IntrospectedTable introspectedTable) {
 
     }
 
+    @Override
     public void addGetterComment(Method method, IntrospectedTable introspectedTable,
-                                 IntrospectedColumn introspectedColumn) {
+        IntrospectedColumn introspectedColumn) {
 
     }
 
+    @Override
     public void addSetterComment(Method method, IntrospectedTable introspectedTable,
-                                 IntrospectedColumn introspectedColumn) {
+        IntrospectedColumn introspectedColumn) {
 
     }
 
-    public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable,
-                                boolean markAsDoNotDelete) {
+    @Override
+    public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable, boolean markAsDoNotDelete) {
 
     }
 
-    public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable) {
-    }
+    @Override
+    public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable) {}
 
 }
