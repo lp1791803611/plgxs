@@ -68,6 +68,11 @@ public class UserController {
         return mav;
     }
 
+    /**
+     * 保存用户
+     * @param user
+     * @return
+     */
     @ResponseBody
     @PostMapping("/saveUser")
     public ResultInfo<PlgUser> saveUser(@RequestBody PlgUser user){

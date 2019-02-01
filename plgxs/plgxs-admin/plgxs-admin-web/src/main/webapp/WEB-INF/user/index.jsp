@@ -20,6 +20,9 @@
     <%@include file="../left.jsp"%>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        <div>
+
+        </div>
         <table id="mytab" class="table table-bordered table-nowrap table-hover table-striped"></table>
     </div>
     <!-- foot -->
