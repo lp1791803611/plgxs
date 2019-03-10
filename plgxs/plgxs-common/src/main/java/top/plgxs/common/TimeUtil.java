@@ -13,6 +13,8 @@ import java.util.StringTokenizer;
  * @author lipian
  */
 public class TimeUtil {
+    public static final SimpleDateFormat datetimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     /**
      * @param args
@@ -321,7 +323,7 @@ public class TimeUtil {
         if (sDate == null) {
             return "";
         }
-        return (new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(sDate.getTime());
+        return datetimeFormat.format(sDate.getTime());
     }
 
     /**根据日期类取年月的字符串形式
@@ -376,10 +378,9 @@ public class TimeUtil {
      * @return date
      */
     public static Date strToDate(String str) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = null;
         try {
-            date = format.parse(str);
+            date = datetimeFormat.parse(str);
         } catch (ParseException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,7 @@
 package top.plgxs.admin.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import com.github.pagehelper.PageInfo;
 
 import top.plgxs.admin.entity.PlgUser;
+import top.plgxs.admin.entity.vo.PlgUserVO;
 import top.plgxs.admin.service.UserService;
 import top.plgxs.admin.utils.PageUtils;
+import top.plgxs.common.export.ExportExcel;
 import top.plgxs.common.page.PageParam;
 import top.plgxs.common.page.PageResult;
+import top.plgxs.common.result.ResultCode;
 import top.plgxs.common.result.ResultInfo;
+import top.plgxs.common.result.ResultUtil;
+
+import java.util.List;
 
 /**
  *  用户管理模块
@@ -80,5 +87,54 @@ public class UserController {
     @ResponseBody
     public ResultInfo<PlgUser> saveUser(@RequestBody PlgUser user) {
         return userService.saveUser(user);
+    }
+
+    /**
+     * 根据主键删除
+     * @param id
+     * @return
+     */
+    @GetMapping("/deleteUserById/{id}")
+    @ResponseBody
+    public ResultInfo<String> deleteUserById(@PathVariable("id") String id) {
+        int result = userService.deleteUserById(id);
+        if (result > 0) {
+            return ResultUtil.getSuccessResult(null);
+        }
+        return ResultUtil.getFailResult(ResultCode.SAVE_ERROR);
+    }
+
+    /**
+     * 修改用户状态
+     * @param id
+     * @param state
+     * @return
+     */
+    @RequestMapping("/{id}/switchState")
+    @ResponseBody
+    public ResultInfo<String> switchState(@PathVariable("id") String id,Integer state){
+        int result = userService.switchState(id, state);
+        if (result > 0) {
+            return ResultUtil.getSuccessResult(null);
+        }
+        return ResultUtil.getFailResult(ResultCode.SAVE_ERROR);
+    }
+
+    /**
+     * 导出excel
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping("/exportExcel")
+    public void exportExcel(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        String queryKey = request.getParameter("queryKey");
+        List<PlgUserVO> list = userService.queryAll(queryKey);
+        String title = "用户列表";
+        String[] rowName = {"#","用户名","手机","邮箱","昵称","性别","真实姓名","身份证号","注册时间","登陆次数","最后登录时间","更新时间","状态"};
+        String[] methodName = {"getId", "getUsername", "getMobile", "getEmail", "getNickname", "getGender", "getRealname",
+                "getIdNumber", "getRegisterTime", "getLoginNumber", "getLastLoginTime", "getUpdateTime", "getStatus"};
+        ExportExcel ex = new ExportExcel();
+        ex.exportExcel(list,title,rowName,methodName,request,response);
     }
 }

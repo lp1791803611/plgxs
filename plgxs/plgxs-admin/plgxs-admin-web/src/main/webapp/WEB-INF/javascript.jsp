@@ -6,6 +6,10 @@
 
 <!-- jQuery 3 -->
 <script src="${contextPath}/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+
+<!-- jquery validation 1.17.0 -->
+<script src="${contextPath}/assets/vendor_components/jquery-validation-1.17.0/dist/jquery.validate.js"></script>
+<script src="${contextPath}/assets/vendor_components/jquery-validation-1.17.0/dist/localization/messages_zh.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="${contextPath}/assets/vendor_components/jquery-ui/jquery-ui.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -48,8 +52,11 @@
 <script src="${contextPath}/assets/js/demo.js"></script>
 
 <!-- Bootstrap table -->
-<script src="${contextPath}/js/bootstrap/bootstrap-table/bootstrap-table.js"></script>
-<script src="${contextPath}/js/bootstrap/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+<script src="${contextPath}/assets/vendor_components/bootstrap-table/bootstrap-table.js"></script>
+<script src="${contextPath}/assets/vendor_components/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+
+<!-- Bootstrap switch -->
+<script src="${contextPath}/assets/vendor_components/bootstrap-switch/bootstrap-switch.js"></script>
 
 <!-- My Js -->
 <script src="${contextPath}/js/myJs.js"></script>

@@ -3,8 +3,11 @@ package top.plgxs.admin.service;
 import com.github.pagehelper.PageInfo;
 
 import top.plgxs.admin.entity.PlgUser;
+import top.plgxs.admin.entity.vo.PlgUserVO;
 import top.plgxs.common.page.PageParam;
 import top.plgxs.common.result.ResultInfo;
+
+import java.util.List;
 
 /**
  * 用户
@@ -38,4 +41,26 @@ public interface UserService {
      * @return top.plgxs.admin.entity.PlgUser
      */
     PlgUser queryById(String id);
+
+    /**
+     * 根据主键删除
+     * @param id 主键
+     * @return
+     */
+    int deleteUserById(String id);
+
+    /**
+     * 修改用户状态
+     * @param id 主键
+     * @param state 状态
+     * @return
+     */
+    int switchState(String id, Integer state);
+
+    /**
+     * 根据条件查询出所有的用户
+     * @param queryKey
+     * @return
+     */
+    List<PlgUserVO> queryAll(String queryKey);
 }

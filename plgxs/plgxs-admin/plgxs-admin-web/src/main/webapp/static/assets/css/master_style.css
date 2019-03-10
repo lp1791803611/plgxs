@@ -2157,8 +2157,7 @@ body .main-header .navbar .nav > li.search-box > a:hover, body .main-header .nav
 }
 [type=checkbox]:checked, [type=checkbox]:not(:checked) {
     position: absolute;
-    left: -9999px;
-    opacity: 0;
+    opacity: 0.8;
 }
 [type=checkbox]+label {
     font-weight: 300;
@@ -2333,8 +2332,7 @@ body .main-header .navbar .nav > li.search-box > a:hover, body .main-header .nav
 }
 [type=radio]:checked, [type=radio]:not(:checked) {
     position: absolute;
-    left: -9999px;
-    opacity: 0;
+    opacity: 0.8;
 }
 [type=radio]:checked+label, [type=radio]:not(:checked)+label {
     font-weight: 300;

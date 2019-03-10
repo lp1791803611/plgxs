@@ -2,6 +2,7 @@ package top.plgxs.admin.dao;
 
 import org.apache.ibatis.annotations.Param;
 import top.plgxs.admin.entity.PlgUser;
+import top.plgxs.admin.entity.vo.PlgUserVO;
 
 import java.util.List;
 
@@ -69,4 +70,10 @@ public interface PlgUserMapper {
      **/
     List<PlgUser> selectByParam(@Param("key") String key);
 
+    /**
+     * 修改状态
+     * @param user
+     * @return
+     */
+    int switchState(PlgUser user);
 }

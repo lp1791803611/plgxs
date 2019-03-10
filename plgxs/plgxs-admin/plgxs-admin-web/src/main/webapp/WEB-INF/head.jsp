@@ -26,8 +26,14 @@
 	<link rel="stylesheet" type="text/css" href="${contextPath}/assets/vendor_components/datatable/datatables.min.css"/>
 
 	<!-- Bootstrap table -->
-	<link rel="stylesheet" href "${contextPath}/js/bootstrap/bootstrap-table/bootstrap-table.css">
-	
+	<link rel="stylesheet" href="${contextPath}/assets/vendor_components/bootstrap-table/bootstrap-table.css">
+
+    <!-- Bootstrap switch -->
+    <link rel="stylesheet" href="${contextPath}/assets/vendor_components/bootstrap-switch/bootstrap-switch.css">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="${contextPath}/assets/vendor_components/font-awesome/css/font-awesome.css">
+
   <header class="main-header">
     <!-- Logo -->
     <a href="index.html" class="logo">

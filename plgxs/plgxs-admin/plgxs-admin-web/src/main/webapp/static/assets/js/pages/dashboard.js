@@ -54,6 +54,8 @@ $(function () {
 
 
 // AREA CHART
+/*
+	//index页面如果删除chat就需要注释该部分
     var area = new Morris.Area({
       element: 'revenue-chart',
       resize: true,
@@ -75,7 +77,11 @@ $(function () {
 		hideHover: 'auto',
 		color: '#666666'
     });
+*/
+
 //BAR CHART
+/*
+	//index页面如果删除chat就需要注释该部分
     var bar = new Morris.Bar({
       element: 'bar-chart',
       resize: true,
@@ -102,7 +108,8 @@ $(function () {
 		hideHover: 'auto',
 		color: '#666666'
     });
-	
+*/
+
 //dashboard_daterangepicker
 	
 	if(0!==$("#dashboard_daterangepicker").length) {

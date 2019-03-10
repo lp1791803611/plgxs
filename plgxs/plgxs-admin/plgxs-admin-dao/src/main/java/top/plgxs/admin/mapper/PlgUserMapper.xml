@@ -248,4 +248,12 @@
       </if>
   </select>
 
+  <update id="switchState" parameterType="top.plgxs.admin.entity.PlgUser">
+    update plg_user
+    set
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
 </mapper>
