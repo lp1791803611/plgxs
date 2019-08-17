@@ -21,9 +21,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <!-- Heade Navbar, Control Sidebar-->
-    <%@include file="head.jsp" %>
+    <%@include file="view/head.jsp" %>
     <!-- Left side column. contains the logo and sidebar -->
-    <%@include file="left.jsp" %>
+    <%@include file="view/left.jsp" %>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -635,12 +635,12 @@
         <!-- /.content -->
     </div>
     <!-- foot -->
-    <%@include file="foot.jsp" %>
+    <%@include file="view/foot.jsp" %>
 </div>
 <!-- ./wrapper -->
 
 <!-- 引入公共js -->
-<%@include file="javascript.jsp" %>
+<%@include file="view/javascript.jsp" %>
 </body>
 </html>
 

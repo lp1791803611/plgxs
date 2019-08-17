@@ -246,6 +246,7 @@
           or email like CONCAT(CONCAT('%', #{key,jdbcType=VARCHAR}), '%')
         )
       </if>
+    order by register_time DESC
   </select>
 
   <update id="switchState" parameterType="top.plgxs.admin.entity.PlgUser">

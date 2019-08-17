@@ -1,5 +1,6 @@
 package top.plgxs.admin.service;
 
+import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.PageInfo;
 
 import top.plgxs.admin.entity.PlgUser;
@@ -63,4 +64,34 @@ public interface UserService {
      * @return
      */
     List<PlgUserVO> queryAll(String queryKey);
+
+    /**
+     * 根据userId查询角色id
+     * @param id
+     * @return
+     */
+    List<String> findRoleByUserId(String id);
+
+    /**
+     * 保存用户角色关系
+     * @param userId
+     * @param roleIds
+     * @return
+     */
+    ResultInfo<String> saveUserRole(String userId, JSONArray roleIds);
+
+    /**
+     * 根据userId查询部门id
+     * @param id
+     * @return
+     */
+    List<Integer> findDeptByUserId(String id);
+
+    /**
+     * 保存用户部门信息
+     * @param userId
+     * @param deptIds
+     * @return
+     */
+    ResultInfo<String> saveUserDept(String userId, String deptIds);
 }

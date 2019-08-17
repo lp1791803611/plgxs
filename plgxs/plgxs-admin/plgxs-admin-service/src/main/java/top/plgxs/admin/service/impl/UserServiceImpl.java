@@ -1,12 +1,16 @@
 package top.plgxs.admin.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import top.plgxs.admin.dao.PlgUserDeptMapper;
 import top.plgxs.admin.dao.PlgUserMapper;
-import top.plgxs.admin.entity.PlgUser;
+import top.plgxs.admin.dao.PlgUserRoleMapper;
+import top.plgxs.admin.entity.*;
 import top.plgxs.admin.entity.vo.PlgUserVO;
 import top.plgxs.admin.service.UserService;
 import top.plgxs.admin.utils.ConvertUtils;
@@ -16,6 +20,7 @@ import top.plgxs.common.result.ResultCode;
 import top.plgxs.common.result.ResultInfo;
 import top.plgxs.common.result.ResultUtil;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,6 +35,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private PlgUserMapper userMapper;
+    @Autowired
+    private PlgUserRoleMapper userRoleMapper;
+    @Autowired
+    private PlgUserDeptMapper userDeptMapper;
 
     @Override
     public PageInfo<PlgUser> queryList(PageParam param) {
@@ -86,5 +95,79 @@ public class UserServiceImpl implements UserService {
     public List<PlgUserVO> queryAll(String queryKey) {
         List<PlgUser> list = userMapper.selectByParam(queryKey);
         return ConvertUtils.convertUserToVO(list);
+    }
+
+    @Override
+    public List<String> findRoleByUserId(String id) {
+        PlgUserRoleExample example = new PlgUserRoleExample();
+        PlgUserRoleExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(id);
+        List<PlgUserRoleKey> list = userRoleMapper.selectByExample(example);
+        List<String> roles = new ArrayList<>();
+        if(list != null && list.size() > 0){
+            for(PlgUserRoleKey roleKey:list){
+                roles.add(roleKey.getRoleId());
+            }
+        }
+        return  roles;
+    }
+
+    @Transactional
+    @Override
+    public ResultInfo<String> saveUserRole(String userId, JSONArray roleIds) {
+        if(StringUtils.isBlank(userId) || roleIds == null || roleIds.size() == 0){
+            return ResultUtil.getFailResult(ResultCode.SAVE_ERROR);
+        }
+        PlgUserRoleExample example = new PlgUserRoleExample();
+        PlgUserRoleExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        userRoleMapper.deleteByExample(example);
+        List<PlgUserRoleKey> list = new ArrayList<>();
+        for(int i=0,len=roleIds.size();i<len;i++){
+            PlgUserRoleKey userRoleKey = new PlgUserRoleKey();
+            userRoleKey.setUserId(userId);
+            userRoleKey.setRoleId(String.valueOf(roleIds.get(i)));
+            list.add(userRoleKey);
+        }
+        userRoleMapper.batchInsert(list);
+        return ResultUtil.getSuccessResult();
+    }
+
+    @Override
+    public List<Integer> findDeptByUserId(String id) {
+        List<Integer> depts = new ArrayList<>();
+        PlgUserDeptExample example = new PlgUserDeptExample();
+        PlgUserDeptExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(id);
+        List<PlgUserDeptKey> list = userDeptMapper.selectByExample(example);
+        if(list != null && list.size() > 0){
+            for(PlgUserDeptKey deptKey:list){
+                depts.add(deptKey.getDeptId());
+            }
+        }
+        return depts;
+    }
+
+    @Override
+    public ResultInfo<String> saveUserDept(String userId, String deptIds) {
+        if(StringUtils.isBlank(userId) || StringUtils.isBlank(deptIds)){
+            return ResultUtil.getFailResult(ResultCode.SAVE_ERROR);
+        }
+        PlgUserDeptExample example = new PlgUserDeptExample();
+        PlgUserDeptExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        userDeptMapper.deleteByExample(example);
+        List<PlgUserDeptKey> list = new ArrayList<>();
+        String[] depts = deptIds.split(",");
+        if(depts != null && depts.length>0){
+            for(int i=0,len=depts.length;i<len;i++){
+                PlgUserDeptKey deptKey = new PlgUserDeptKey();
+                deptKey.setUserId(userId);
+                deptKey.setDeptId(Integer.parseInt(depts[i]));
+                list.add(deptKey);
+            }
+        }
+        userDeptMapper.batchInsert(list);
+        return ResultUtil.getSuccessResult();
     }
 }
