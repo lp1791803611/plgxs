@@ -60,7 +60,7 @@
         <version-poi>3.15</version-poi>
         <version-poi-ooxml>3.15</version-poi-ooxml>
         <!--junit-->
-        <version-junit>4.12</version-junit>
+        <version-junit>4.13.1</version-junit>
 
         <version.dom4j>1.6.1</version.dom4j>
 
