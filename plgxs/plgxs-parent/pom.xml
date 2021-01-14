@@ -57,7 +57,7 @@
         <version-beanutils>1.9.2</version-beanutils>
 
         <!--poi-->
-        <version-poi>3.15</version-poi>
+        <version-poi>3.17</version-poi>
         <version-poi-ooxml>3.15</version-poi-ooxml>
         <!--junit-->
         <version-junit>4.12</version-junit>
