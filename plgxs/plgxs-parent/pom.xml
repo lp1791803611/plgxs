@@ -66,7 +66,7 @@
 
         <!--json-->
         <version-fastjson>1.2.47</version-fastjson>
-        <version-gson>2.8.0</version-gson>
+        <version-gson>2.8.9</version-gson>
 
         <!--shiro-->
         <shiro-version>1.2.4</shiro-version>
