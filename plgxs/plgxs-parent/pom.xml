@@ -31,7 +31,7 @@
 
         <version-cglib>2.2.2</version-cglib>
         <!--spring-->
-        <version-spring>4.3.18.RELEASE</version-spring>
+        <version-spring>5.2.22.RELEASE</version-spring>
         <version-aspectjweaver>1.8.10</version-aspectjweaver>
         <version-aopalliance>1.0</version-aopalliance>
         <version-quartz>2.3.0</version-quartz>
