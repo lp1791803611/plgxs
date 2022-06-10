@@ -86,7 +86,7 @@
 
         <solr-version>5.3.1</solr-version>
         <version-jedis>2.9.0</version-jedis>
-        <version-dubbo>2.5.3</version-dubbo>
+        <version-dubbo>2.6.12</version-dubbo>
         <version-zookeeper>3.4.6</version-zookeeper>
         <version-zkclient>0.1</version-zkclient>
         <version-activemq>5.12.3</version-activemq>
