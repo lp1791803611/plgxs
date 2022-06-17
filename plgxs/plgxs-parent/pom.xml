@@ -65,7 +65,7 @@
         <version.dom4j>1.6.1</version.dom4j>
 
         <!--json-->
-        <version-fastjson>1.2.47</version-fastjson>
+        <version-fastjson>1.2.83</version-fastjson>
         <version-gson>2.8.0</version-gson>
 
         <!--shiro-->
