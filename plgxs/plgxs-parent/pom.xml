@@ -37,7 +37,7 @@
         <version-quartz>2.3.0</version-quartz>
         <!--jackson-->
         <version-jackson-mapper-asl>1.9.13</version-jackson-mapper-asl>
-        <version-jackson-databind>2.8.11.2</version-jackson-databind>
+        <version-jackson-databind>2.12.6.1</version-jackson-databind>
         <version-jackson-module-jaxb-annotations>2.1.0</version-jackson-module-jaxb-annotations>
 
         <!--servlet/jsp-->
